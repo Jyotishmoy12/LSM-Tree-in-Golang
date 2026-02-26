@@ -6,7 +6,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/engine"
 )
 
 func main() {

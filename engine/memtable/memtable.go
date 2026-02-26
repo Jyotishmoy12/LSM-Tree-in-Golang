@@ -3,7 +3,7 @@ package memtable
 import (
 	"fmt"
 
-	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal/wal"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/engine/wal"
 )
 
 // MemTable is an in-memory data structure that holds key-value pairs before they are flushed to disk.

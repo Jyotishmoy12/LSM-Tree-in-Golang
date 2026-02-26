@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal/sstable"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/engine/sstable"
 )
 
 func main() {
