@@ -31,7 +31,7 @@ Use this if you want to run the server directly on your machine.
 **Clone and Build:**
 
 ```bash
-git clone https://github.com/jyotishmoy12/go-lsm
+git clone https://github.com/Jyotishmoy12/LSM-Tree-in-Golang
 cd go-lsm
 go build -o lsm-server ./cmd/lsm-server/main.go
 ```
@@ -101,6 +101,55 @@ client.on('data', (data) => {
     console.log('Response:', data.toString());
     client.end();
 });
+```
+### Golang Integration
+
+## Installation: 
+
+```
+go get go get github.com/Jyotishmoy12/LSM-Tree-in-Golang
+
+```
+
+```
+
+```Golang
+package main
+
+import (
+	"fmt"
+	"log"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/engine"
+)
+
+func main() {
+	// 1. Initialize the engine
+	// We point it to a local folder and set a 1KB MemTable limit
+	db, err := engine.New("./my_db_data", 1024)
+	if err != nil {
+		log.Fatalf("Failed to initialize: %v", err)
+	}
+	defer db.Close()
+
+	// 2. Put some data
+	fmt.Println("Writing data...")
+	err = db.Put([]byte("hero"), []byte("Batman"))
+	if err != nil {
+		fmt.Printf("Put error: %v\n", err)
+	}
+
+	// 3. Retrieve data
+	val, found, err := db.Get([]byte("hero"))
+	if err != nil {
+		fmt.Printf("Get error: %v\n", err)
+	}
+
+	if found {
+		fmt.Printf(" Found: %s\n", string(val))
+	} else {
+		fmt.Println(" Key not found")
+	}
+}
 ```
 
 ---
