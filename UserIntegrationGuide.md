@@ -102,7 +102,22 @@ client.on('data', (data) => {
     client.end();
 });
 ```
-### Golang Integration
+
+## 4. Inspection & Debugging Tools
+
+Go-LSM comes with built-in utilities to "see" inside the database files.
+
+| Tool | Purpose | Command |
+|------|---------|---------|
+| SSTable Dump | View sorted disk data | `go run ./cmd/lsm-dump ./stress_storage/<file>.sst` |
+| WAL Dump | View unflushed recovery logs | `go run ./cmd/lsm-wal-dump ./stress_storage/active.wal` |
+| Stress Test | Auto-generate 100+ writes | `go run ./cmd/lsm-stress` |
+
+---
+
+## 5. Using as a Go Library
+
+If you are a Go developer, you don't need the server; you can embed the engine directly.
 
 ## Installation: 
 
@@ -148,37 +163,6 @@ func main() {
 	}
 }
 ```
-
----
-
-## 4. Inspection & Debugging Tools
-
-Go-LSM comes with built-in utilities to "see" inside the database files.
-
-| Tool | Purpose | Command |
-|------|---------|---------|
-| SSTable Dump | View sorted disk data | `go run ./cmd/lsm-dump ./stress_storage/<file>.sst` |
-| WAL Dump | View unflushed recovery logs | `go run ./cmd/lsm-wal-dump ./stress_storage/active.wal` |
-| Stress Test | Auto-generate 100+ writes | `go run ./cmd/lsm-stress` |
-
----
-
-## 5. Using as a Go Library
-
-If you are a Go developer, you don't need the server; you can embed the engine directly.
-
-```go
-import "github.com/jyotishmoy12/go-lsm/internal"
-
-func main() {
-    // Initialize engine with 1MB MemTable limit
-    db, _ := internal.New("./my_storage", 1024*1024) 
-    defer db.Close()
-
-    db.Put([]byte("hero"), []byte("batman"))
-}
-```
-
 ---
 
 ## Final Notes for Users
