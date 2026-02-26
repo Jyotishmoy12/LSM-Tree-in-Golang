@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jyotishmoy12/go-lsm/internal"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal"
 )
 
 func main() {

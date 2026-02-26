@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jyotishmoy12/go-lsm/internal/memtable"
-	"github.com/jyotishmoy12/go-lsm/internal/sstable"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal/memtable"
+	"github.com/Jyotishmoy12/LSM-Tree-in-Golang/internal/sstable"
 )
 
 // The Engine’s job is to coordinate them: when you call Get, it first checks the MemTable,
