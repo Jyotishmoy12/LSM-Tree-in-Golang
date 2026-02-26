@@ -14,7 +14,7 @@ func main() {
 	os.RemoveAll(storageDir) // Start fresh
 
 	// 1. Init DB with a small MemTable (512 bytes) to trigger flushes often
-	db, err := internal.New(storageDir, 512)
+	db, err := engine.New(storageDir, 512)
 	if err != nil {
 		log.Fatalf("Failed to init: %v", err)
 	}

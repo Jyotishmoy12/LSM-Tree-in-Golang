@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Initialize the LSM engine with 1KB MemTable limit for easy testing of flushes
-	db, err := internal.New("./stress_storage", 1024)
+	db, err := engine.New("./stress_storage", 1024)
 	if err != nil {
 		fmt.Printf("Failed to initialize DB: %v\n", err)
 		return

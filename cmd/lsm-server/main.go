@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// 1. Initialize the Engine
-	db, err := internal.New("./stress_storage", 1024*1024)
+	db, err := engine.New("./stress_storage", 1024*1024)
 	if err != nil {
 		fmt.Printf("Failed to start engine: %v\n", err)
 		return
@@ -39,7 +39,7 @@ func main() {
 	}
 }
 
-func handleConnection(conn net.Conn, db *internal.LSM) {
+func handleConnection(conn net.Conn, db *engine.LSM) {
 	defer conn.Close()
 	scanner := bufio.NewScanner(conn)
 
