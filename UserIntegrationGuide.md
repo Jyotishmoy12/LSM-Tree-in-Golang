@@ -107,8 +107,7 @@ client.on('data', (data) => {
 ## Installation: 
 
 ```
-go get go get github.com/Jyotishmoy12/LSM-Tree-in-Golang
-
+go get github.com/Jyotishmoy12/LSM-Tree-in-Golang
 ```
 
 ```Golang
